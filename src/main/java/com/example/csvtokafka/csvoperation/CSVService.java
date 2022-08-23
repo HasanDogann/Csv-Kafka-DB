@@ -26,15 +26,13 @@ public class CSVService {
         try {
             List<Trial> trials = CSVHelper.csvToTutorials(file.getInputStream());
             for (int i=0;i<trials.size();i++) {
-                if(trials.get(i).getSeriesTitle3().startsWith(msg)){
-                kafkaProducer.writeMessage(trials.get(i).getSeriesTitle3()+","+trials.get(i).getPeriod()+"-> "+trials.get(i).getDataValue());}
+                if(trials.get(i).getName().startsWith(msg)){
+                    kafkaProducer.writeMessage(trials.get(i).getName()+" currency name is: "+trials.get(i).getCode());}
             }
             repository.saveAll(trials);
         } catch (IOException e) {
             throw new RuntimeException("fail to store csv data: " + e.getMessage());
         }
     }
-    public List<Trial> getAllTutorials() {
-        return repository.findAll();
-    }
+
 }

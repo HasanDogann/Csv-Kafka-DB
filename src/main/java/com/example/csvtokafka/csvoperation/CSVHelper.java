@@ -39,20 +39,10 @@ public class CSVHelper {
             Iterable<CSVRecord> csvRecords = csvParser.getRecords();
             for (CSVRecord csvRecord : csvRecords) {
                 Trial trial = new Trial(
-                       csvRecord.get("Series_reference"),
-                       csvRecord.get("Period"),
-                       Long.parseLong(csvRecord.get("Data_value")),
-                       csvRecord.get("Suppressed"),
-                       csvRecord.get("STATUS"),
-                       csvRecord.get("UNITS"),
-                       csvRecord.get("Magnitude"),
-                       csvRecord.get("Subject"),
-                       csvRecord.get("Group"),
-                       csvRecord.get("Series_title_1") ,
-                        csvRecord.get("Series_title_2"),
-                        csvRecord.get("Series_title_3"),
-                        csvRecord.get("Series_title_4"),
-                        csvRecord.get("Series_title_5")
+                      csvRecord.get("Code"),
+                      csvRecord.get("Symbol"),
+                      csvRecord.get("Name")
+
                 );
                 trials.add(trial);
             }
