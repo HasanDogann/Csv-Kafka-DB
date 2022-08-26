@@ -1,8 +1,8 @@
-package com.example.csvtokafka.csvoperation;
+package com.example.csvtokafka.csv;
 
 import com.example.csvtokafka.entity.Trial;
-import com.example.csvtokafka.repository.TrialRepository;
 import com.example.csvtokafka.kafka.KafkaProducer;
+import com.example.csvtokafka.repository.TrialRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -21,15 +21,15 @@ public class CSVService {
 
     private KafkaProducer kafkaProducer;
 
-    private TrialRepository repository;
-    public void save(MultipartFile file,String msg) {
+
+    public void save(MultipartFile file) {
         try {
             List<Trial> trials = CSVHelper.csvToTutorials(file.getInputStream());
-            for (int i=0;i<trials.size();i++) {
-                if(trials.get(i).getName().startsWith(msg)){
-                    kafkaProducer.writeMessage(trials.get(i).getName()+" currency name is: "+trials.get(i).getCode());}
+            for (int i = 0; i < trials.size(); i++) {
+
+                kafkaProducer.writeMessage(trials.get(i).getName() + "," + trials.get(i).getCode()+","+trials.get(i).getSymbol());
             }
-            repository.saveAll(trials);
+
         } catch (IOException e) {
             throw new RuntimeException("fail to store csv data: " + e.getMessage());
         }

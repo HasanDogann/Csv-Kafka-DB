@@ -1,4 +1,4 @@
-package com.example.csvtokafka.csvoperation;
+package com.example.csvtokafka.csv;
 
 /**
  * @author Hasan DOĞAN
