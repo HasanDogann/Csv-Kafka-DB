@@ -5,8 +5,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  * @author Hasan DOĞAN
- * @Project IntelliJ IDEA
- * @Date 23.08.2022
+ * IntelliJ IDEA
+ * 25.08.2022
  */
-public interface TrialRepository extends JpaRepository<Trial,Long> {
+public interface TrialRepository extends JpaRepository<Trial, Long> {
 }

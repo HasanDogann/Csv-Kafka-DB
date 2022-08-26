@@ -2,9 +2,10 @@ package com.example.csvtokafka.entity;
 
 /**
  * @author Hasan DOĞAN
- * @Project IntelliJ IDEA
- * @Date 23.08.2022
+ * IntelliJ IDEA
+ * 25.08.2022
  */
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

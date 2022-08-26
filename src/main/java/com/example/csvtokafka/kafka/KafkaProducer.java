@@ -6,20 +6,20 @@ import org.springframework.stereotype.Service;
 
 /**
  * @author Hasan DOĞAN
- * @Project IntelliJ IDEA
- * @Date 23.08.2022
+ * IntelliJ IDEA
+ * 25.08.2022
  */
 @Service
 @AllArgsConstructor
 public class KafkaProducer {
 
-    private static final String TOPIC= "hd_trial";
+    private static final String TOPIC = "hd_trial";
 
 
-    private KafkaTemplate<String,String> kafkaTemplate;
+    private KafkaTemplate<String, String> kafkaTemplate;
 
-    public void writeMessage(String msg){
+    public void writeMessage(String msg) {
 
-        this.kafkaTemplate.send(TOPIC,msg);
+        this.kafkaTemplate.send(TOPIC, msg);
     }
 }
