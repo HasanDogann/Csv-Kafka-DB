@@ -40,7 +40,7 @@ public class KafkaConsumer {
         trial.setSymbol(kafkaListener.get(2));
 
         trialRepository.save(trial);
-        log.info("******"+totalMessageCount + "." + " message is saved to DB ******");
+        log.info("***** "+totalMessageCount + "." + " message is saved to DB *****");
 
     }
 
